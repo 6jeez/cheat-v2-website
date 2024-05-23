@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="breakas">
+	<h1 class="infobreaks">Info</h1>
+	<p class="paragrafbreaks">info {{ username }}</p>
+</div>
+{% endblock %}
+
+
+{% block logout_block %}
+<li><a href="{{ url_for('logout') }}">logout</a></li>
+{% endblock %}

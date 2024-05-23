@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Registration</h2>
+        <form method="POST" action="/register">
+            <label for="name">Username:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="pass" required>
+
+            <label for="pass">Repeat password:</label>
+            <input type="password" id="rep_pass" name="rep_pass" required>
+
+            <input type="submit" value="register">
+
+            <a href="{{ url_for('show_login') }}" class="register-button">login</a>
+            <a href="{{ url_for('show_index') }}" class="register-button">main menu</a>
+            {% if error %}
+                <div class="error-message">Username is already used</div>
+            {% endif %}
+            {% if pass_error %}
+                <div class="error-message">Repeat ur password!</div>
+            {% endif %}
+            {% if success %}
+                <div class="success-message">You successfully registered!</div>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>

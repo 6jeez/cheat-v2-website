@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style2.css') }}">
+{% endblock %}
+
+
+{% block content %}
+<div class="interium">
+	<h1 class="hMidnight">Interium</h1>
+	<a href="{{url_for('static', filename='cheats/interium.rar')}}" class="interiumdownload" download>download</a>
+	<a href="https://www.youtube.com/watch?v=wsTcu9SZWSs" class="interiumguide" target="_blank" >guide</a>	
+</div>
+
+<div class="fatality">
+	<h1>Fatality</h1>
+	<a href="{{ url_for('static', filename='cheats/fatality_crack.rar') }}" class="fatalitydownload" download>download</a>
+	<a href="https://www.youtube.com/watch?v=OaJvx24fkWc" class="fatalityguide" target="_blank" >guide</a>
+</div>
+
+<div class="midnight">
+	<h1 class="hMidnight">Midnight</h1>
+	<a href="{{ url_for('static', filename='cheats/midnight.rar') }}" class="midnightdownload" download>download</a>
+	<a href="https://youtu.be/a5tyKdjps-8" class="midnightguide" target="_blank" >guide</a>	
+</div>
+
+<div class="extrimehack">
+	<h1>Extrime</h1>
+	<a href="{{ url_for('static', filename='cheats/extrime_hack_free.rar') }}" class="midnightdownload" download>download</a>
+</div>
+
+{% endblock %}
+{% block auth_block %}
+{% if not_authorised %}
+<li><a href="{{ url_for('show_login') }}">login</a></li>
+{% endif %}
+{% endblock %}
+
+{% block authorized %}
+{% if authorized %}
+<li class="username"><a href="{{url_for('show_profile')}}">profile</a></li>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+
+{% block content %}
+<div class="breakas">
+	<h1 class="infobreaks">Info</h1>
+	<p class="paragrafbreaks">This website has been created for entertainment purposes only! You can find all the information on other Internet resources.</p>
+</div>
+
+<div class="socialnetworks">
+	<h1 class="hSocial">Social Networks</h1>
+	<a href="https://t.me/cheat_gang" class="SocialTg" >telegram</a>
+	<a href="https://www.youtube.com/channel/UC7D_lHB3R80YFYO3WXksG7Q" class="SocialYt" >youtube</a>
+	<a href="https://www.tiktok.com/@odyngod?" class="SocialTT" >TikTok</a>
+</div>
+{% endblock %}
+
+{% block auth_block %}
+{% if not_authorised %}
+<li><a href="{{ url_for('show_login') }}">login</a></li>
+{% endif %}
+{% endblock %}
+
+{% block authorized %}
+{% if authorized %}
+<li class="username"><a href="{{url_for('show_profile')}}">profile</a></li>
+{% endif %}
+{% endblock %}

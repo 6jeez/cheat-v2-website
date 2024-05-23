@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form method="POST" action="/login">
+            <label for="name">Username:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="pass">Password:</label>
+            <input type="password" id="pass" name="pass" required>
+            <input type="submit" value="login">
+            <a href="{{ url_for('show_register') }}" class="register-button">register</a>
+            <a href="{{ url_for('show_index') }}" class="register-button">main menu</a>
+            {% if error %}
+                <div class="error-message">Invalid username or password</div>
+            {% endif %}
+            {% if success %}
+                <div class="success-message">You successfully logged in</div>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>
